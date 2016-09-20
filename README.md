@@ -8,5 +8,5 @@ This contains set of APIs as seprate ColdFusion Application.
 ## Promotion
 ## Gateway -- Payment GateWay
 
-There is my sql dump <h3>ecommerce.sql</h3> containg the database tables required for the APIs .
-Please create schema named <h3>e-commerce</h3> in your MySql DB. Register the Data source in ColdFuison administrator  with name <h3>e-commerce</h3>.
+There is my sql dump **ecommerce.sql** containg the database tables required for the APIs .
+Please create schema named **e-commerce** in your MySql DB. Register the Data source in ColdFuison administrator  with name **e-commerce**.
