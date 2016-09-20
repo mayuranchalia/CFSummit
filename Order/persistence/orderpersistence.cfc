@@ -1,10 +1,10 @@
 component hint="This is persistence implementation to persist/retrieve order information from database" output="true"{
 	
-	function createOrder(customerId,orderStatus,orderProducts,paymentId) access="public" returntype="CFSummit.Order.model.order"     {
+	function createOrder(customerId,orderStatus,orderProducts,paymentId) access="public" returntype="cfsummit.order.model.order"     {
 		queryexecute("insert into order_table (order_customer_id, order_status, order_products, order_payment_gatewayid) values(?,?,?,?)",
 		[customerId,orderStatus,orderProducts,paymentId],{result="result"});	
 		orderProductStruct = deserializeJSON(orderProducts);
-		order = createObject("component", "CFSummit.Order.model.order");
+		order = createObject("component", "cfsummit.order.model.order");
 		order.customerId = customerId;
 		order.orderStatus = orderStatus;
 		order.orderProducts = orderProductStruct;
@@ -14,14 +14,14 @@ component hint="This is persistence implementation to persist/retrieve order inf
 		return order;
 	}
 	
-	function getOrders(customerIdArg) access="public" returntype="CFSummit.Order.model.order[]"     {
+	function getOrders(customerIdArg) access="public" returntype="cfsummit.order.model.order[]"     {
 		
 		qparams = {customerId={value=customerIdArg , cfsqltype ='cf_sql_varchar'}};
 		queryResultObj = queryexecute("select * from order_table where order_customer_id=:customerId",qparams);
 		var orderList = arraynew(1);
 		cfloop(query="queryResultObj")
 		{
-			order = createObject("component", "CFSummit.Order.model.order");
+			order = createObject("component", "cfsummit.order.model.order");
 			order.customerId = queryResultObj.order_customer_id;
 			order.orderId = queryResultObj.order_id;
 			order.orderStatus = queryResultObj.order_status;

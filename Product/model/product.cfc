@@ -17,8 +17,8 @@ component  displayname="Product" hint="This is a product model"
 	/**
 		This is a example of subresource locator
 	**/
-	function getProduct() httpmethod="GET"  returntype ="CFSummit.Product.model.product" access="remote" produces="application/json" {
-		productPersistence = createObject("component", "CFSummit.Product.persistence.productpersistence");
+	function getProduct() httpmethod="GET"  returntype ="cfsummit.product.model.product" access="remote" produces="application/json" {
+		productPersistence = createObject("component", "cfsummit.product.persistence.productpersistence");
 		product = productPersistence.getProductsById(this.product_id);
 		return product;
 	}	 

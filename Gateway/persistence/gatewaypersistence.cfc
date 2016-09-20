@@ -1,12 +1,12 @@
 component  hint="This is persistance implementation to persist/retrieve payment gateway information from database" {
 	
 	
-	function getgateWays() returntype="CFSummit.Gateway.model.gateway[]" access="public"     {
+	function getgateWays() returntype="cfsummit.gateway.model.gateway[]" access="public"     {
 		queryResultObj = queryexecute("select * from gateway_table");
 		var gatewayList = arraynew(1);
 		cfloop(query="queryResultObj")
 		{
-			gateway = createObject("component", "CFSummit.Gateway.model.gateway" );
+			gateway = createObject("component", "cfsummit.gateway.model.gateway" );
 			gateway.gateway_id = queryResultObj.gateway_id;
 			gateway.gateway_name = queryResultObj.gateway_name;
 			gateway.gateway_description = queryResultObj.gateway_description;

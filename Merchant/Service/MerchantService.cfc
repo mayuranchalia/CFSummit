@@ -7,7 +7,7 @@
 		<cfargument name="productPrice" restargname="productPrice" restargsource="Form" type="numeric" >
 		<cfargument name="productQuantity" restargname="productQuantity" restargsource="Form" type="numeric" >
 		<cfscript>
-			merchantPersistence = createObject("component", "CFSummit.Merchant.persistence.merchantpersistence" );	
+			merchantPersistence = createObject("component", "cfsummit.merchant.persistence.merchantpersistence" );	
 			response = merchantPersistence.addProduct(merchantId,productId,productPrice,productQuantity);
 		</cfscript>
 			<cfreturn response>
@@ -19,7 +19,7 @@
 		<cfargument name="productId" restargname="productId" restargsource="Form" type="numeric" >
 		<cfargument name="productPrice" restargname="productPrice" restargsource="Form" type="numeric" >
 		<cfscript>
-			merchantPersistence = createObject("component", "CFSummit.Merchant.persistence.merchantpersistence" );	
+			merchantPersistence = createObject("component", "cfsummit.merchant.persistence.merchantpersistence" );	
 			response = merchantPersistence.updateProductPrice(merchantId,productId,productPrice);
 		</cfscript>
 			<cfreturn response>
@@ -31,7 +31,7 @@
 		<cfargument name="productId" restargname="productId" restargsource="Form" type="numeric" >
 		<cfargument name="productQuantity" restargname="productQuantity" restargsource="Form" type="numeric" >
 		<cfscript>
-			merchantPersistence = createObject("component", "CFSummit.Merchant.persistence.merchantpersistence" );	
+			merchantPersistence = createObject("component", "cfsummit.merchant.persistence.merchantpersistence" );	
 			response = merchantPersistence.updateProductQuantity(merchantId,productId,productQuantity);
 		</cfscript>
 			<cfreturn response>
@@ -42,7 +42,7 @@
 		<cfargument name="merchantId" restargname="merchantId" restargsource="Path" type="numeric" >
 		<cfargument name="productId" restargname="productId" restargsource="Query " type="numeric" >
 		<cfscript>
-			merchantPersistence = createObject("component", "CFSummit.Merchant.persistence.merchantpersistence" );	
+			merchantPersistence = createObject("component", "cfsummit.merchant.persistence.merchantpersistence" );	
 			response = merchantPersistence.deleteProduct(merchantId,productId);
 		</cfscript>
 			<cfreturn response>
@@ -52,7 +52,7 @@
 	 						produces="application/json" description="Get products for the Merchant">
 		<cfargument name="merchantId" restargname="merchantId" restargsource="Path" type="numeric" >
 		<cfscript>
-			merchantPersistence = createObject("component", "CFSummit.Merchant.persistence.merchantpersistence" );	
+			merchantPersistence = createObject("component", "cfsummit.merchant.persistence.merchantpersistence" );	
 			response = merchantPersistence.getMerchantProduct(merchantId);
 		</cfscript>
 			<cfreturn response>

@@ -1,8 +1,8 @@
 <!---<cfcomponent rest="true" restpath="order">
-	<cffunction name="getOrders" access="remote" produces="application/json" returntype="CFSummit.Order.model.order[]" httpmethod="GET" restpath="{customerId}" description="API to retrieve the list order for a customer">
+	<cffunction name="getOrders" access="remote" produces="application/json" returntype="cfsummit.order.model.order[]" httpmethod="GET" restpath="{customerId}" description="API to retrieve the list order for a customer">
 		<cfargument name="customerId" restargname="customerId" restargsource="Path" type="string" >
 			<cfscript>
-				orderPersistence = createObject("component", "CFSummit.Order.persistence.orderpersistence");
+				orderPersistence = createObject("component", "cfsummit.order.persistence.orderpersistence");
 				ordres = orderPersistence.getOrders(customerId);
 			</cfscript>
 			<cfreturn ordres>
@@ -12,19 +12,19 @@
 		<cfargument name="customerId" restargname="customerId" restargsource="Path" type="string" >
 		<cfargument name="orderId" restargname="orderId" restargsource="Path" type="numeric" >
 		<cfscript>
-			orderPersistence = createObject("component", "CFSummit.Order.persistence.orderpersistence");
+			orderPersistence = createObject("component", "cfsummit.order.persistence.orderpersistence");
 			orderresponse = orderPersistence.deleteOrder(orderId,customerId);
 		</cfscript>
 		<cfreturn orderresponse>
 	</cffunction>
 	
-	<cffunction name="placeOrder" access="remote" consumes="application/x-www-form-urlencoded" produces="application/json" httpmethod="POST"  returntype="CFSummit.Order.model.order" description="API to place order">
+	<cffunction name="placeOrder" access="remote" consumes="application/x-www-form-urlencoded" produces="application/json" httpmethod="POST"  returntype="cfsummit.order.model.order" description="API to place order">
 		<cfargument name="customerId" restargname="customerId" restargsource="Form" type="string" >
 		<cfargument name="orderStatus" restargname="orderStatus" restargsource="Form" type="string" >
 		<cfargument name="orderProducts" restargname="orderProducts" restargsource="Form" type="string" >
 		<cfargument name="paymentGatewayId" restargname="paymentGatewayId" restargsource="Form" type="numeric" >
 		<cfscript>
-			orderPersistence = createObject("component", "CFSummit.Order.persistence.orderpersistence");
+			orderPersistence = createObject("component", "cfsummit.order.persistence.orderpersistence");
 			order = orderPersistence.createOrder(customerId,orderStatus,orderProducts,paymentGatewayId);
 		</cfscript>
 		<cfreturn order>
@@ -37,7 +37,7 @@
 		<cfargument name="orderStatus" restargsource="Form" restargname="orderStatus" type="string" >
 		<cfargument name="orderProducts" restargsource="Form" restargname="orderProducts" type="string" >
 		<cfscript>
-			orderPersistence = createObject("component", "CFSummit.Order.persistence.orderpersistence");
+			orderPersistence = createObject("component", "cfsummit.order.persistence.orderpersistence");
 			orderResponse = orderPersistence.updateOrder(customerId,orderId,paymentGatewayId,orderStatus,orderProducts);
 		</cfscript>
 		<cfreturn orderResponse>

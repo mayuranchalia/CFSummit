@@ -1,8 +1,8 @@
 component  rest="true" restpath="order" {
 	
-	function getOrders(required string customerId restargname="customerId" restargsource="Path") access="remote" produces="application/json" returntype="CFSummit.Order.model.order[]" httpmethod="GET" 
+	function getOrders(required string customerId restargname="customerId" restargsource="Path") access="remote" produces="application/json" returntype="cfsummit.order.model.order[]" httpmethod="GET" 
 	 					restpath="{customerId}" description="API to retrieve the list order for a customer"{
-		orderPersistence = createObject("component", "CFSummit.Order.persistence.orderpersistence");
+		orderPersistence = createObject("component", "cfsummit.order.persistence.orderpersistence");
 		ordres = orderPersistence.getOrders(customerId);
 		return ordres;
 	}
@@ -10,7 +10,7 @@ component  rest="true" restpath="order" {
 	function deleteOrder(required string customerId restargname="customerId" restargsource="Path",
 		required numeric orderId restargname="orderId" restargsource="Path" )access="remote" httpmethod="DELETE" 
 	 					restpath="{customerId}/{orderId}" returntype="boolean" description="Delete the order"{			
-	 		orderPersistence = createObject("component", "CFSummit.Order.persistence.orderpersistence");
+	 		orderPersistence = createObject("component", "cfsummit.order.persistence.orderpersistence");
 			orderresponse = orderPersistence.deleteOrder(orderId,customerId);
 			return 	orderresponse;			
 	 						
@@ -20,8 +20,8 @@ component  rest="true" restpath="order" {
 	 	required string orderStatus restargname="orderStatus" restargsource="Form" ,
 	 	required string orderProducts restargname="orderProducts" restargsource="Form",
 	 	required numeric paymentGatewayId restargname="paymentGatewayId" restargsource="Form")access="remote" consumes="application/x-www-form-urlencoded" produces="application/json" httpmethod="POST" 
-	  									 returntype="CFSummit.Order.model.order" description="API to place order"{
-	  		orderPersistence = createObject("component", "CFSummit.Order.persistence.orderpersistence");
+	  									 returntype="cfsummit.order.model.order" description="API to place order"{
+	  		orderPersistence = createObject("component", "cfsummit.order.persistence.orderpersistence");
 			order = orderPersistence.createOrder(customerId,orderStatus,orderProducts,paymentGatewayId);
 			return order;
 	 }
@@ -32,7 +32,7 @@ component  rest="true" restpath="order" {
 	 required string orderStatus  restargsource="Form" restargname="orderStatus",
 	 required string orderProducts restargsource="Form" restargname="orderProducts") access="remote" restpath="{customerId}" consumes="application/x-www-form-urlencoded" 
 	  						returntype="boolean" httpmethod="PUT" description="Update an existing order"{
-	 	orderPersistence = createObject("component", "CFSummit.Order.persistence.orderpersistence");
+	 	orderPersistence = createObject("component", "cfsummit.order.persistence.orderpersistence");
 		orderResponse = orderPersistence.updateOrder(customerId,orderId,paymentGatewayId,orderStatus,orderProducts);
 		return orderResponse;
 	 }

@@ -1,23 +1,23 @@
 component  hint="This is persistence implementation to persist/retrieve brand information from database"
 {
-	function saveBrand(brandName,brandDescription) returntype="CFSummit.Catalogue.model.brand" access="public"     {
+	function saveBrand(brandName,brandDescription) returntype="cfsummit.catalogue.model.brand" access="public"     {
 		
 		queryexecute("insert into brand_table (brand_name,brand_description) values(?,?)",
 			[brandName,brandDescription],{result="result"});
 			
-			brand = createObject("component", "CFSummit.Catalogue.model.brand");
+			brand = createObject("component", "cfsummit.catalogue.model.brand");
 			brand.brand_name = brandName;
 			brand.brand_description = brandDescription;
 			brand.brand_id = result.generatedkey;
 			
 			return brand;
 	}
-	function getBrands() returntype="CFSummit.Catalogue.model.brand[]" access="public"      {
+	function getBrands() returntype="cfsummit.catalogue.model.brand[]" access="public"      {
 		queryResultObj = queryexecute("select * from brand_table");
 		var brandList = arraynew(1);
 		cfloop(query="queryResultObj")
 		{
-			brand = createObject("component", "CFSummit.Catalogue.model.brand" );
+			brand = createObject("component", "cfsummit.catalogue.model.brand" );
 			brand.brand_name = queryResultObj.brand_name;
 			brand.brand_description = queryResultObj.brand_description;
 			brand.brand_id = queryResultObj.brand_id;		
@@ -25,11 +25,11 @@ component  hint="This is persistence implementation to persist/retrieve brand in
 		}
 		return brandList;
 	}
-	function getBrandDetailsById(brandIdArg) returntype="CFSummit.Catalogue.model.brand" access="public" {
+	function getBrandDetailsById(brandIdArg) returntype="cfsummit.catalogue.model.brand" access="public" {
 		
 		qparams = {brandid={value=brandIdArg , cfsqltype ='cf_sql_integer'}};
 		queryObj = queryexecute("select * from brand_table where brand_id=:brandid",qparams);
-		brand = createObject("component", "CFSummit.Catalogue.model.brand");
+		brand = createObject("component", "cfsummit.catalogue.model.brand");
 		brand.brand_description = queryObj["BRAND_DESCRIPTION"][1];
 		brand.brand_name = queryObj["BRAND_NAME"][1];
 		brand.brand_id = brandIdArg;
