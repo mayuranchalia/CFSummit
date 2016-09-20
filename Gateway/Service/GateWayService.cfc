@@ -1,4 +1,4 @@
-<cfcomponent restpath="gateways" rest="true" >
+<!---<cfcomponent restpath="gateways" rest="true" >
 	
 	<cffunction name="listGateways" access="remote" httpmethod="GET" returntype="CFSummit.Gateway.model.gateway[]" consumes="application/json" produces="application/json" description="List all the Payment Gateways">
 		<cfscript>
@@ -26,4 +26,4 @@
 		<cfreturn status>
 	</cffunction>
 	
-</cfcomponent>
+</cfcomponent>--->

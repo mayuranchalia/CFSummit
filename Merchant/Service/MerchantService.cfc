@@ -1,4 +1,4 @@
-<cfcomponent restpath="merchant" rest="true">
+<!---<cfcomponent restpath="merchant" rest="true">
 	
 	<cffunction name="addProduct" access="remote" httpmethod="POST" consumes="application/x-www-form-urlencoded" produces="application/json" 
 					restpath="product/{merchantId}" returntype="boolean"  description="Add a new product">
@@ -58,4 +58,4 @@
 			<cfreturn response>
 	</cffunction>
 	
-</cfcomponent>
+</cfcomponent>--->

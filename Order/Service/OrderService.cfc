@@ -1,4 +1,4 @@
-<cfcomponent rest="true" restpath="order">
+<!---<cfcomponent rest="true" restpath="order">
 	<cffunction name="getOrders" access="remote" produces="application/json" returntype="CFSummit.Order.model.order[]" httpmethod="GET" restpath="{customerId}" description="API to retrieve the list order for a customer">
 		<cfargument name="customerId" restargname="customerId" restargsource="Path" type="string" >
 			<cfscript>
@@ -42,4 +42,4 @@
 		</cfscript>
 		<cfreturn orderResponse>
 	</cffunction>
-</cfcomponent>
+</cfcomponent>--->
