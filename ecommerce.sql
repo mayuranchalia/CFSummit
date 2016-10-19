@@ -117,7 +117,6 @@ CREATE TABLE `merchant_product_table` (
 
 LOCK TABLES `merchant_product_table` WRITE;
 /*!40000 ALTER TABLE `merchant_product_table` DISABLE KEYS */;
---INSERT INTO `merchant_product_table` VALUES (1,1,15,800),(1,4,200,340),(2,2,39,500);
 INSERT INTO `merchant_product_table` (`merchant_id`,`product_id`,`product_quantity`,`product_price`) VALUES (1,1,15,800);
 INSERT INTO `merchant_product_table` (`merchant_id`,`product_id`,`product_quantity`,`product_price`) VALUES (1,4,200,340);
 INSERT INTO `merchant_product_table` (`merchant_id`,`product_id`,`product_quantity`,`product_price`) VALUES (2,2,39,500);
